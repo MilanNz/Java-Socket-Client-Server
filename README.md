@@ -48,7 +48,7 @@ Java Socket Client-Server implementation with listener and Base64 coder and deco
 #The MIT License
 --------
 ```
-Copyright (c) 2015 Milan Adamovic http://angularjs.org
+Copyright (c) 2015 Milan Adamovic 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
