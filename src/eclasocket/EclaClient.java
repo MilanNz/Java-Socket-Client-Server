@@ -17,7 +17,6 @@ public class EclaClient {
      */
     public static void main(String[] args) {
         Transfer client = new SocketTransfer();
-        
         client.setPort(8888).setAddress("localhost").startClient();
         client.addListener(new EclaSocketListener() {
 
@@ -26,9 +25,7 @@ public class EclaClient {
                 System.out.println(response);
             }
         });
-        client.sendMessage("Cao serveru!");
-        client.sendMessage("Cao dva");
-        client.sendMessage("Cao tri");
+        client.sendMessage("Hello to server");
         
     }
             
