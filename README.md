@@ -40,6 +40,9 @@ Java Socket Client-Server implementation with listener and Base64 coder and deco
   client.sendMessage("Hello to server");
 
 ```
+###How to install?
+It's easy, just download EclaSocket.jar and iclude it in your project.
+[EclaSocket.jar](https://github.com/MilanNz/Java-Socket-Client-Server/tree/master/dist)
 
 #More about Java Socket
 * [Socket](http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html)
