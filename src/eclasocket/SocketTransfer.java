@@ -5,6 +5,7 @@
  */
 package eclasocket;
 
+import eclasocket.listener.EclaSocketListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -143,6 +144,8 @@ public class SocketTransfer implements Transfer, Runnable{
     }
    
     
+    /** Encode message with Base64.
+     @param message */
     private String base64encode(String message){
         try {
             return Base64.getEncoder().encodeToString(message.getBytes("utf-8"));
@@ -153,6 +156,8 @@ public class SocketTransfer implements Transfer, Runnable{
     }
     
     
+    /** Decode message using Base64.
+     @param message */
     private String base64decode(String message){
         try {
             byte[] base64decodedBytes = Base64.getDecoder().decode(message);

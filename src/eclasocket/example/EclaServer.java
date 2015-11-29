@@ -3,31 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eclasocket;
+package eclasocket.example;
 
-import java.util.Scanner;
+import eclasocket.listener.EclaSocketListener;
+import eclasocket.SocketTransfer;
+import eclasocket.Transfer;
 
 /**
  *
  * @author Milan
  */
-public class EclaClient {
-    /**
-     * @param args the command line arguments
-     */
+public class EclaServer{
     public static void main(String[] args) {
-        Transfer client = new SocketTransfer();
-        client.setPort(8888).setAddress("localhost").startClient();
-        client.addListener(new EclaSocketListener() {
+        Transfer server = new SocketTransfer();
+        server.setPort(8888).startServer();
+        server.sendMessage("THX for connection!");
+        server.addListener(new EclaSocketListener() {
 
             @Override
             public void onRecive(String response) {
                 System.out.println(response);
             }
         });
-        client.sendMessage("Hello to server");
-        
     }
-            
-    
+
 }
