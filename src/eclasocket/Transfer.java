@@ -27,6 +27,9 @@ public interface Transfer {
     /** Send message. 
      @param message */
     void sendMessage(String message);
+    /** Send object. 
+     @param object */
+    void sendMessageObject(Object object);
     /** add listener
      @param listener */
     void addListener(EclaSocketListener listener);

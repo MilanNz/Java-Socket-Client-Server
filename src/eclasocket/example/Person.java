@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eclasocket.listener;
+package eclasocket.example;
 
 /**
  *
  * @author Milan
  */
-public interface EclaSocketListener {
-    void onRecive(String response);
-    void onConnected(boolean connect);
+public class Person {
+    public String name;
+    public String lastname;
+    public int status;
 }

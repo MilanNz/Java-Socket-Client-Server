@@ -61,6 +61,11 @@ public class SocketTransfer implements Transfer, Runnable{
             // create client
             mSocket = mServerSocket.accept();
             
+            if(mServerSocket.isBound()) {
+                if(mListener != null)
+                    mListener.onConnected(true);
+            }
+            
              // create client for out and in
             mDataOutputStream = new DataOutputStream(mSocket.getOutputStream());
             mDataInputStream = new DataInputStream(mSocket.getInputStream());
@@ -87,6 +92,9 @@ public class SocketTransfer implements Transfer, Runnable{
             
             // is connected?
             if(mSocket.isConnected()) {
+                if(mListener != null)
+                    mListener.onConnected(true);
+                
                 System.out.println("Client connected: " 
                         + mSocket.getRemoteSocketAddress());
             }
@@ -124,6 +132,19 @@ public class SocketTransfer implements Transfer, Runnable{
             mDataOutputStream.flush();
         } catch (IOException | NullPointerException ex) {
             System.out.println(TAG + ex.getMessage());
+        }
+    }
+    
+    
+    @Override
+    public void sendMessageObject(Object object) {
+        try {
+            // encode and create json
+            mDataOutputStream.writeUTF(
+                    base64encode(MessageBuilder.createMessage(object)));
+            mDataOutputStream.flush();
+        } catch(IOException e) {
+            System.out.println(TAG + e.getMessage());
         }
     }
 
@@ -173,6 +194,8 @@ public class SocketTransfer implements Transfer, Runnable{
     public void addListener(EclaSocketListener listener) {
         this.mListener = listener;
     }
+
+
     
 
     

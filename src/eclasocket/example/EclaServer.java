@@ -24,6 +24,11 @@ public class EclaServer{
             public void onRecive(String response) {
                 System.out.println(response);
             }
+
+            @Override
+            public void onConnected(boolean connect) {
+                System.out.println(String.valueOf(connect));
+            }
         });
     }
 

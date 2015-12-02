@@ -5,10 +5,10 @@
  */
 package eclasocket.example;
 
+import eclasocket.MessageBuilder;
 import eclasocket.listener.EclaSocketListener;
 import eclasocket.SocketTransfer;
 import eclasocket.Transfer;
-import java.util.Scanner;
 
 /**
  *
@@ -26,10 +26,23 @@ public class EclaClient {
             @Override
             public void onRecive(String response) {
                 System.out.println(response);
+                System.out.println(MessageBuilder.parseMessage(response));
+            }
+
+            @Override
+            public void onConnected(boolean connect) {
+                System.out.println(String.valueOf(connect));
             }
         });
         client.sendMessage("Hello to server");
         
+        // create object
+        Person person = new Person();
+        person.name = "Milan";
+        person.lastname = "MilanNz";
+        person.status = 1;
+        
+        client.sendMessageObject(person);
     }
             
     
