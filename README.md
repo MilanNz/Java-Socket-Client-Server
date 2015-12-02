@@ -40,6 +40,23 @@ Java Socket Client-Server implementation with listener and Base64 coder and deco
   client.sendMessage("Hello to server");
 
 ```
+#### Send Object
+```
+  // create object
+  Person person = new Person();
+  person.name = "Milan";
+  person.lastname = "MilanNz";
+  person.status = 1;
+  
+  // send object
+  client.sendMessageObject(person);
+```
+##### Parse JSON
+```
+  MessageBuilder.parseMessage(response);
+```
+For this option we use [Gson](https://github.com/google/gson)
+
 ###How to install?
 It's easy, just download EclaSocket.jar and iclude it in your project.
 [EclaSocket.jar](https://github.com/MilanNz/Java-Socket-Client-Server/tree/master/dist)
